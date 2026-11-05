@@ -1,0 +1,7 @@
+# Base de données des joueurs : ne jamais la publier
+*.db
+*.db-wal
+*.db-shm
+camos-data/
+data/*
+!data/.htaccess

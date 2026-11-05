@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Camos MW4</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Camos MW4</h1>
+  <p>Les camos spéciaux et érudits de chaque arme, avec le défi exact. Crée ton compte, coche tes camos au fur et à mesure : ta progression est enregistrée sur le site.</p>
+  <div class="account" id="account" hidden>Connecté en tant que <b id="who"></b>
+    <button type="button" class="btn" id="acctbtn" aria-expanded="false" aria-controls="acctpanel">Mon compte</button>
+    <span id="acctzone"></span>
+  </div>
+  <div class="notice" id="nocode" hidden>Tu n'as pas encore de code de secours : sans lui, impossible de récupérer ton compte si tu oublies ton mot de passe.
+    <button type="button" class="btn" id="nocodebtn">Créer mon code</button></div>
+  <section class="codecard" id="codecard" hidden aria-labelledby="codetitle">
+    <h2 id="codetitle">Ton code de secours</h2>
+    <p>Note-le maintenant (capture d'écran, gestionnaire de mots de passe…). C'est le <b>seul moyen</b> de récupérer ton compte si tu oublies ton mot de passe. Il ne sera plus jamais affiché.</p>
+    <div class="code"><output id="codeval"></output><button type="button" class="btn" id="codecopy">Copier</button></div>
+    <button type="button" class="btn primary" id="codeok">J'ai noté mon code</button>
+  </section>
+  <section class="acctpanel" id="acctpanel" hidden aria-label="Mon compte">
+    <form id="pwform" class="miniform" novalidate>
+      <h3>Changer de mot de passe</h3>
+      <label for="pw-cur">Mot de passe actuel</label><input id="pw-cur" type="password" autocomplete="current-password">
+      <label for="pw-new">Nouveau mot de passe</label><input id="pw-new" type="password" autocomplete="new-password">
+      <p class="formerr" id="pwerr" role="alert"></p>
+      <button class="btn primary" type="submit">Changer le mot de passe</button>
+    </form>
+    <form id="codeform" class="miniform" novalidate>
+      <h3>Nouveau code de secours</h3>
+      <p class="hint">L'ancien code ne fonctionnera plus.</p>
+      <label for="cd-cur">Mot de passe actuel</label><input id="cd-cur" type="password" autocomplete="current-password">
+      <p class="formerr" id="cderr" role="alert"></p>
+      <button class="btn primary" type="submit">Générer un nouveau code</button>
+    </form>
+  </section>
+  <div class="alert" id="alert" hidden></div>
+  <section class="auth" id="auth" hidden aria-labelledby="authtitle">
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-login" aria-selected="true">Connexion</button>
+      <button type="button" role="tab" id="tab-register" aria-selected="false">Créer un compte</button>
+    </div>
+    <h2 id="authtitle" class="sr">Compte joueur</h2>
+    <p class="authintro">Connecte-toi pour enregistrer ta progression.</p>
+    <form id="authform" novalidate>
+      <label for="pseudo">Pseudo</label>
+      <input id="pseudo" name="pseudo" autocomplete="username" required maxlength="20">
+      <label for="code" id="codelbl" hidden>Code de secours</label>
+      <input id="code" name="code" hidden autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="24">
+      <label for="mdp" id="mdplbl">Mot de passe</label>
+      <input id="mdp" name="mdp" type="password" autocomplete="current-password" required>
+      <p class="hint" id="hint" hidden>3 à 20 caractères pour le pseudo (lettres, chiffres, _ . -). 8 caractères minimum pour le mot de passe.</p>
+      <p class="formerr" id="formerr" role="alert"></p>
+      <button class="btn primary" id="authsubmit" type="submit">Se connecter</button>
+    </form>
+    <button type="button" class="linkbtn" id="forgot">Mot de passe oublié ?</button>
+  </section>
+</header>
+
+<div class="bar">
+  <div class="total"><span class="big" id="tot">0 / 0</span><span class="lbl" id="totpct"></span><span class="save" id="save">connexion…</span></div>
+  <div class="meter"><i id="totbar"></i></div>
+  <div class="div" id="div"><b>Divergence</b><span id="divtxt"></span></div>
+  <nav class="cats" aria-label="Catégories d'armes">
+    <button type="button" class="navkey" id="prevcat" aria-label="Catégorie précédente"><kbd>Q</kbd></button>
+    <div class="cat-track" id="chips" role="tablist"></div>
+    <button type="button" class="navkey" id="nextcat" aria-label="Catégorie suivante"><kbd>E</kbd></button>
+  </nav>
+  <div class="controls">
+    <input class="search" id="q" type="search" placeholder="Chercher une arme ou un camo…" aria-label="Recherche">
+    <label class="toggle"><input type="checkbox" id="hide"> Masquer les terminés</label>
+    <span id="resetzone"></span>
+  </div>
+</div>
+
+<main id="list"></main>
+<p class="keys"><kbd>Q</kbd> <kbd>E</kbd> changer de catégorie · <kbd>←</kbd> <kbd>→</kbd> changer d'arme</p>
+
+<p class="note">Sources : warzoneloadout.games, mw4.gg et codmunity.gg, relevés le 5 novembre 2026. Divergence se débloque une seule fois pour tout le compte, quand Harmonic Break est obtenu sur les 33 armes : il se coche tout seul ici.</p>
+</div>
+
+<script src="assets/camos-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

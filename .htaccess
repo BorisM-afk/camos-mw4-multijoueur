@@ -1,0 +1,22 @@
+# ── Camos MW4 : protections Apache (alwaysdata, Plesk…) ──
+Options -Indexes
+DirectoryIndex index.html
+
+# Fichiers qui ne doivent jamais être servis
+<FilesMatch "(\.(db|db-wal|db-shm|sql|md|bat|log|bak)|^config\.php)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# En-têtes de sécurité
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "same-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always unset X-Powered-By
+</IfModule>
