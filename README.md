@@ -1,5 +1,12 @@
 # Camos MW4 – tracker multijoueur
 
+![PHP 8.1+](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-PDO-003B57?logo=sqlite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black)
+![Sans dépendance](https://img.shields.io/badge/d%C3%A9pendances-0-3f7a3a)
+
+![Aperçu du tracker : onglets de catégories, rangée d'armes et panneau de camos](docs/screenshots/apercu.png)
+
 Site web pour suivre sa progression sur les camouflages de **Call of Duty: Modern Warfare 4**.
 Chaque joueur crée un compte, coche ses camos au fur et à mesure et retrouve sa progression
 depuis n'importe quel appareil.
@@ -17,6 +24,24 @@ depuis n'importe quel appareil.
 - **Mot de passe oublié sans e-mail** : code de secours à usage unique remis à l'inscription.
 - Recherche dans toutes les armes et tous les camos, filtre « masquer les terminés »,
   responsive mobile, thème clair et sombre automatique.
+
+## Captures
+
+<table>
+<tr>
+<td width="50%"><img src="docs/screenshots/theme-sombre.png" alt="Thème sombre"><br><sub><b>Thème sombre</b> automatique, selon le réglage de l'appareil.</sub></td>
+<td width="50%"><img src="docs/screenshots/arme-terminee.png" alt="Arme terminée en doré"><br><sub><b>Arme terminée</b> : la carte et le panneau passent en doré.</sub></td>
+</tr>
+<tr>
+<td colspan="2"><img src="docs/screenshots/onglets.png" alt="Onglets de catégories"><br><sub><b>Volets façon Call of Duty</b> : une catégorie par onglet, compteur sous chaque nom, navigation avec <code>Q</code> / <code>E</code>.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="docs/screenshots/connexion.png" alt="Connexion"><br><sub><b>Connexion</b> centrée, avec affichage du mot de passe et lien « mot de passe oublié ».</sub></td>
+<td width="50%"><img src="docs/screenshots/code-de-secours.png" alt="Code de secours"><br><sub><b>Code de secours</b> remis à l'inscription pour récupérer son compte sans e-mail.</sub></td>
+</tr>
+</table>
+
+<p align="center"><img src="docs/screenshots/mobile.png" width="300" alt="Version mobile"><br><sub><b>Version mobile</b> : catégories et armes défilent au doigt.</sub></p>
 
 ## Stack
 
@@ -54,6 +79,7 @@ index.html            page du tracker
 assets/app.js         interface (volets, comptes, sauvegarde)
 assets/style.css      styles
 assets/camos-data.js  données des armes et des camos
+docs/screenshots/     captures du README
 api.php               API : comptes, progression, récupération
 config.php            emplacement de la base, limites anti-abus
 schema.sql            tables utilisateurs, progression, evenements
