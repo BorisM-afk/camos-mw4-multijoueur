@@ -70,8 +70,6 @@ depuis n'importe quel appareil.
    `camos-data/` à côté du dossier web (modifiable dans `config.php`).
 3. En local : `php -S localhost:8765` dans le dossier, ou `LANCER-EN-LOCAL.bat` sous Windows.
 
-Le guide de mise en ligne détaillé (alwaysdata, HTTPS, sauvegardes) est dans [`LISEZMOI.md`](LISEZMOI.md).
-
 ## Structure
 
 ```
