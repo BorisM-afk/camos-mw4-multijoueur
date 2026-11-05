@@ -63,26 +63,6 @@ depuis n'importe quel appareil.
 | Content-Security-Policy stricte (aucun script inline), HSTS, `X-Frame-Options` | XSS, clickjacking |
 | Base hors du dossier web, `.htaccess` sur les fichiers sensibles | téléchargement de fichiers internes |
 
-## Installation
-
-1. Copier le contenu du dépôt dans le dossier web d'un hébergement PHP 8.1+ avec `pdo_sqlite`.
-2. Ouvrir le site et créer un compte : la base `camos.db` est créée dans un dossier
-   `camos-data/` à côté du dossier web (modifiable dans `config.php`).
-3. En local : `php -S localhost:8765` dans le dossier, ou `LANCER-EN-LOCAL.bat` sous Windows.
-
-## Structure
-
-```
-index.html            page du tracker
-assets/app.js         interface (volets, comptes, sauvegarde)
-assets/style.css      styles
-assets/camos-data.js  données des armes et des camos
-docs/screenshots/     captures du README
-api.php               API : comptes, progression, récupération
-config.php            emplacement de la base, limites anti-abus
-schema.sql            tables utilisateurs, progression, evenements
-.htaccess             en-têtes de sécurité et fichiers bloqués
-```
 
 ## Sources des données
 
